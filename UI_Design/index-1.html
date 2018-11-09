@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>My Style Guide</title>
+
+    <!-- Site theme -->
+    <link rel="stylesheet" type="text/css" href="css/theme.css">
+
+	<!-- Include script for font awesome icon library -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+
+<body>
+    <a name="Top"></a>
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#">
+                    <span class="navbar-brand">
+                        <i class="fas fa-home"></i>My Interface Style Guide for WODBucket</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-3">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="#font">Font</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#colorTheme">Color Theme</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#headings">Headings</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#buttons">Buttons</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#formElements">Form Elements</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#messages">Messages</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <!-- About -->
+            <div>
+                <div class="page-header">
+                    <h1>
+                        <a name="about"></a>My Styles</h1>
+                </div>
+                <p>This page contains specific style guide information for my front end interface.</p>
+            </div>
+            <!-- End About -->
+
+            <!-- Fonts -->
+            <div>
+                <div class="page-header">
+                    <h1>
+                        <a name="fonts"></a>Font</h1>
+                </div>
+                <p>My application utilizes the "Arial", "serif" font-family with white text.</p>
+            </div>
+            <div class="spacer">
+                <a href="#Top">Back to Top</a>
+            </div>
+            <!-- End Fonts -->
+
+            <!-- Color Theme -->
+            <div>
+                <div class="page-header">
+                    <h1>
+                        <a name="colorTheme"></a>Color Theme</h1>
+                </div>
+                <p>My application incorporates the below color scheme in its interface.</p>
+                <div class="box" id="primary1"></div>
+                <div class="box" id="primary2"></div>
+                <div class="box" id="primary3"></div>
+            </div>
+            <div class="spacer">
+                <a href="#Top">Back to Top</a>
+            </div>
+            <!-- End Color Theme -->
+
+            <!-- Headings -->
+            <div>
+                <div class="page-header">
+                    <h1>
+                        <a name="headings"></a>Headings</h1>
+                </div>
+                <p>The below font sizes and styles are used in the application for various content headings.</p>
+                <h1>Heading 1</h1>
+                <h2>Heading 2</h2>
+                <h3>Heading 3</h3>
+            </div>
+            <div class="spacer">
+                <a href="#Top">Back to Top</a>
+            </div>
+            <!-- End Headings -->
+
+            <!-- Buttons -->
+            <div>
+                <div class="page-header">
+                    <h1>
+                        <a name="buttons"></a>Buttons</h1>
+                </div>
+                <p>The application will feature buttons that contain the below colors and shapes:</p>
+                <button>Single Button</button>
+                <!-- Single button -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Action <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li><a href="#">Action Button</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="spacer">
+                <a href="#Top">Back to Top</a>
+            </div>
+            <!-- End Buttons -->
+
+            <!-- Form Elements -->
+            <div>
+                <div class="page-header">
+                    <h1>
+                        <a name="formElements"></a>Form Elements</h1>
+                </div>
+                <p>For the varous forms that the application will contain, it will contain input fields and labels with the below styling:</p>
+                
+                <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">@</span>
+                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                </div>
+                
+                <div class="input-group">
+                <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
+                <span class="input-group-addon" id="basic-addon2">@example.com</span>
+                </div>
+
+                <label for="basic-url">Title</label>
+                <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Mr. Mrs. Sir Ma'am</span>
+                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                </div>
+            </div>
+            <div class="spacer">
+                <a href="#Top">Back to Top</a>
+            </div>
+            <!-- End Form Elements -->
+
+            <!-- User Messages -->
+            <div>
+                <div class="page-header">
+                    <h1>
+                        <a name="messages"></a>Messages</h1>
+                </div>
+                <p>For various completed tasks, application notifications will be presented to the user based.  The following contextual messages will be used.</p>
+                <p class="alert alert-warning" role="alert">Please try again</p>
+                <p class="alert alert-danger" role="alert">Input Invalid - Please try again later</p>
+                <p class="alert alert-success" role="alert">Input Validated Successfully</p>
+            </div>
+            <div class="spacer">
+                <a href="#Top">Back to Top</a>
+            </div>
+            <!-- End User Messages -->
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <p class="text-muted">Copyright My Style Guide</p>
+        </div>
+    </div>
+</body>
+
+</html>
