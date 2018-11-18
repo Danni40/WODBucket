@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>WOD Bucket</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.jpg" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <link href="styles.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="mustache.js"></script>
+
+    <script type="text/javascript" src="data-1.js"></script>
+    
+    
+</head>
+
+<body>
+    <!-- Define main content areas in the site that receives information from data.js. First script is used for the top navigation and the second for the side navigation -->
+    <script id="topNavigation" type="x-tmpl-mustache">
+				{{#item}}
+					<li class="nav-item">
+						<a class="nav-link" href="{{link}}">{{name}}</a>
+					</li>
+				{{/item}}
+	</script>
+
+    <script id="sideNavigation" type="x-tmpl-mustache">
+				{{#item}}
+					<li class="nav-item">
+						<a class="nav-link" href="{{link}}"><img src="{{image}}" alt="{{altTag}}"><span>{{name}}</span></a>
+					</li>
+				{{/item}}
+	</script>
+
+  <!-- Responsive top navigation bar -->
+    <nav id="mainNavigation" class="navbar navbar-expand-md navbar-dark fixed-top">
+
+        <a class="navbar-brand" href="#"><img src="./images/Small_Logo.jpg">WOD Bucket</a>
+        
+        <!-- Mustache renders the top navigation links in the below unordered list -->
+            <ul class="navbar-nav mr-auto" id="render_topLinks"></ul>
+
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <a class="btn btn-secondary" href="#" role="button" type="submit">Search</a>
+            </form>
+        </div>
+    </nav>
+
+    <main role="main">
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-3">Nutrition</h1>
+                <p>Having a healthy diet is 80% of the battle!</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Row 1 -->
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3>Classic Healthy</h3>
+                            <p>
+                                <img src="images/meal4.jpg">
+                            </p>
+                            <label class="container">Choose Meal
+                                <input type="radio" checked="checked" name="radio">
+                                <span class="checkmark"></span>
+                            </label><br>
+                            <h3>Vegetarian</h3>
+                            <p>
+                                <img src="./images/meal3.jpg">
+                            </p>
+                            <label class="container">Choose Meal
+                                <input type="radio" checked="checked" name="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <br>
+                        <div class="col-md-8">
+                            <h3>What's Meal Planning?</h3>
+                            <p>
+                                <h5>
+                                        Real Plans creates and organizes recipes, generates a 
+                                        weekly menu, grocery lists and a day-by-day roadmap for 
+                                        getting healthy, delicious food on the table. We clear 
+                                        the path to the kitchen so you can focus on feeding your 
+                                        family just the way you want. 
+                                        <a href="https://realplans.com/?AFFID=290553">
+                                        Read more</a>...
+                                </h5>
+                            </p>
+                            <img src="images/audrey.webp" style="width: 550px; height: 209px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h3>Keto</h3>
+                    <img src="images/keto.jpg">
+                
+                    <label class="container">Choose Meal
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+
+            <hr>  
+
+            <!-- Row 2 -->
+            <div class="row">
+
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-4">
+                            
+                            <h6 style="background-image: url(./images/fitCathy.jpg); height: 260px; color: white;">
+                                <br><br><br><br><br>
+                                <br>"OWOD helped me lose 67 pounds in 3 months and I feel 
+                            a million times better -Sharon Cosey from Cleveland, OH"</h6>
+                        </div>
+                        <div>
+                            <form>
+                                Username:<br>
+                                <input type="text" name="Username" value=""><br>
+                                Password:<br>
+                                <input type="password" name="password" value=""><br><br>
+                                Today's Date:<br>
+                                <input type="date" name="date" value=""><br>
+                                <textarea rows="10" cols="50">food diary entry</textarea><br>
+                                <input type="submit" value="Submit">
+                                <input type="reset">
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h3>Boxes near you</h3>
+                    <a href="http://www.google.com">
+                    <img src="images/googlemaps.png" style="width: 250px; height: 292px;">
+                    </a>
+                </div>
+            </div>
+            <div class="navbar">
+                <a href="#" class="active"><img src="./images/In-2C-115px-R.png"></a>
+                <a href="#"><img src="./images/Like-Button_EN_RGB_114.png"></a>
+                <a href="#"><img src="./images/glyph-logo_May2016.png"></a>
+            </div>
+            <hr>
+            <div class="navbar">
+                <a href="./office.html" class="previous">&laquo; Previous</a>
+                <a href="./journal.html" class="next" style="text-align: right;">Next &raquo;</a>           
+            </div>
+            <hr>
+        </div>
+        <!-- /container -->
+
+    </main>
+
+    <footer class="container">
+        <!-- We are using jQuery to populate the current year below -->
+        <p>&copy; DSL Jounaling Company
+            <span id="currentYear"></span>
+        </p>
+    </footer>
+
+</body>
+
+</html>            

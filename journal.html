@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>WOD Bucket</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.jpg" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <link href="styles.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="mustache.js"></script>
+
+    <script type="text/javascript" src="data-1.js"></script>
+</head>
+
+<body>
+    <!-- Define main content areas in the site that receives information from data.js. First script is used for the top navigation and the second for the side navigation -->
+    <script id="topNavigation" type="x-tmpl-mustache">
+				{{#item}}
+					<li class="nav-item">
+						<a class="nav-link" href="{{link}}">{{name}}</a>
+					</li>
+				{{/item}}
+	</script>
+
+    <script id="sideNavigation" type="x-tmpl-mustache">
+				{{#item}}
+					<li class="nav-item">
+						<a class="nav-link" href="{{link}}"><img src="{{image}}" alt="{{altTag}}"><span>{{name}}</span></a>
+					</li>
+				{{/item}}
+	</script>
+
+  <!-- Responsive top navigation bar -->
+    <nav id="mainNavigation" class="navbar navbar-expand-md navbar-dark fixed-top">
+
+        <a class="navbar-brand" href="#"><img src="./images/Small_Logo.jpg">WOD Bucket</a>
+        
+        <!-- Mustache renders the top navigation links in the below unordered list -->
+            <ul class="navbar-nav mr-auto" id="render_topLinks"></ul>
+
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <a class="btn btn-secondary" href="#" role="button" type="submit">Search</a>
+            </form>
+        </div>
+    </nav>
+
+    <main role="main">
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-3">Record your progress</h1>
+                <p>“Progress is impossible without change, and those who 
+                    cannot change their minds cannot change anything.” 
+                    George Bernard Shaw</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- large row -->
+            <!-- Left Column-->
+            <div class="row" >
+                <div class="col-md-3">
+                        <img src="./images/leftside.jpg">
+                </div>
+
+                <!-- middle section  -->
+                <div class="col-md-6" style="margin-left: 5px;">
+                    <!-- first row -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>
+                            <h4>WOD Bucket</h4>
+                            <h6>
+                                <form>
+                                    Username:<br>
+                                    <input type="text" name="Username" value=""><br>
+                                    Password:<br>
+                                    <input type="password" name="password" value=""><br><br>
+                                    Today's Date:<br>
+                                    <input type="date" name="date" value=""><br>
+                                    <textarea rows="10" cols="30">Enter Workout Completed</textarea>
+                                </form>
+                            </h6>
+                            </p>
+                        </div>  
+                        <div class="col-md-6">
+                            <p>
+                                <h4>Long Term Goals</h4><br>
+                                <textarea rows="10" cols="30">example: No alcohol and lose 120 pounds
+                                </textarea>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- second row -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>
+                                <h4>Items that need improvement</h4><br>
+                                <textarea rows="10" cols="30">example: Diet, Cardio, Sleep
+                                </textarea>
+                            </p>
+                        </div>  
+                        <div class="col-md-6">
+                            <p>
+                                <h4>Short Term Goals</h4><br>
+                                <textarea rows="10" cols="30">example: Lose 10 pounds in 5 months
+                                </textarea>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- third row -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><h4>Upload Picture</h4><br>
+                                <form>
+                                    <input type="file" name="pic" accept="image/*">
+                                    <input type="submit">
+                                </form>
+                            </p>
+                        </div>  
+                        <div class="col-md-6">
+                            <p>
+                                <form>
+                                    <label for="sleep">Number of hours of sleep</label>
+                                    <select name="sleep" id="sleep">
+                                        <option>1-3</option>
+                                        <option>4-7</option>
+                                        <option>8-10</option>
+                                    </select>
+                                </form><br>
+                                <form>
+                                    <label for="weight">Today's Weight</label>
+                                    <select name="weight" id="weight">
+                                        <option>Ideal</option>
+                                        <option>Overweight</option>
+                                        <option>Underweight</option>
+                                    </select>
+                                </form><br>
+                                <form>
+                                    <label for="stress">Stress Level</label>
+                                    <select name="stress" id="stress">
+                                        <option>Good</option>
+                                        <option>Nuetral</option>
+                                        <option>Bad</option>
+                                    </select>
+                                </form><br>
+                                <form>
+                                    <label for="nutrition">Nutrition Quality</label>
+                                    <select name="nutrition" id="nutrition">
+                                        <option>Good</option>
+                                        <option>Nuetral</option>
+                                        <option>Bad</option>
+                                    </select>
+                                </form><br>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <input type="submit" value="Submit">
+                    <input type="submit" value="Share on Facebook">
+                    <input type="reset">
+                </div>
+
+
+                <!-- right column-->
+                <div class="col-md-3" style="margin-left: -15px;">
+                        <img src="./images/rightside.jpg">
+                </div>
+            </div>
+            <div class="navbar">
+                <a href="#" class="active"><img src="./images/In-2C-115px-R.png"></a>
+                <a href="#"><img src="./images/Like-Button_EN_RGB_114.png"></a>
+                <a href="#"><img src="./images/glyph-logo_May2016.png"></a>
+            </div>
+
+            <hr>
+            <div class="navbar">
+                <a href="./nutrition.html" class="previous">&laquo; Previous</a>           
+            </div>
+            <hr>
+        </div>
+        <!-- /container -->
+
+    </main>
+
+    <footer class="container">
+        <!-- We are using jQuery to populate the current year below -->
+        <p>&copy; DSL Jounaling Company
+            <span id="currentYear"></span>
+        </p>
+    </footer>
+
+</body>
+
+</html>            

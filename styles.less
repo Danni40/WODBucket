@@ -1,0 +1,114 @@
+// Theme Variables
+@primary: red;
+@secondary: blue;
+@border-radius:5px;
+
+
+main{
+	form{
+        border: 2px solid black;
+    }
+}
+body{
+
+	h1, h2, h3, h4{
+		color:darken(@primary, 4%);
+	}
+	
+	a.btn{
+		background-color:lighten(@primary, 12%);
+		
+		&:hover{
+			background-color:lighten(@primary, 1%)
+		}
+	}
+	
+	#mainNavigation{
+        background-color:@primary;
+		
+		.navbar-brand{
+			background-color:darken(@primary, 5%);
+			padding: 5px;
+			font-weight: bold;
+			
+			&:hover{
+				outline:1px solid lighten(@primary, 10%);
+			}
+		}
+		
+		a.nav-link{
+			color:#fff;
+			
+			&:hover{
+				color: rgba(255,255,255,.5);
+			}
+		}
+		
+		a.btn{
+			&:hover{
+				background-color:lighten(@primary, 8%)
+			}
+		}
+    }
+    
+    .col-md-8, .col-md-4{
+        img{
+        width: 95%;
+        height: 95%;
+        }
+    }
+  
+    .col-md-6{
+        border: 2px solid black; 
+        padding: 1em;
+        background: whitesmoke;
+    }
+
+	.jumbotron{
+		background-image:url("./images/o-CROSSFIT-facebook.jpg");
+		
+		.container{
+			background: rgba(0, 0, 0, 0.8);
+			border-radius:@border-radius;
+			padding:1em;
+			color:#fff;
+			
+			h1.display-3{
+				color:#fff;
+			}
+		}	
+    }
+    
+    img:hover {
+        opacity: 0.5;
+        filter: alpha(opacity=50); /* For IE8 and earlier */
+    }
+	ul#render_sideLinks{
+		li{
+			border: 1px solid #ddd;
+			border-radius: @border-radius;
+			margin: 7px auto;
+			width: 100%;
+			overflow: hidden;
+
+			a{
+				color:@secondary;
+				
+				&:hover{
+					color:lighten(@secondary, 15%);
+				}
+				
+				img{
+					margin-left:5px;
+				}
+				span{
+					margin-left:12px;
+				}
+			} 
+		}
+	}
+
+	footer{
+		text-align:left;
+    }
+}
