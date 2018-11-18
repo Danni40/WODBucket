@@ -25,8 +25,12 @@ $(document).ready(function(){
              //   link: "./office.html"
             },
             {
-               name: "Current Workout",
-               link: "./journal.html"
+                //   name: "ournal",
+                //   link: "./journal.html"
+               },
+            {
+               name: "Homepage",
+               link: "./workout.html"
             },
 			{
                 //name: "Login",

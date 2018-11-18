@@ -79,18 +79,24 @@
                     <div class="row">
                         <div class="col-md-6">
                             <p>
-                            <h4>WOD Bucket</h4>
+                            <h4>Previous Workout</h4>
                             <h6>
                                 <form>
-                                    Username:<br>
-                                    <input type="text" name="Username" value=""><br>
-                                    Password:<br>
-                                    <input type="password" name="password" value=""><br><br>
-                                    Today's Date:<br>
-                                    <input type="date" name="date" value=""><br>
-                                    <textarea rows="10" cols="30">Enter Workout Completed</textarea>
+                                    Date:
+                                    <input type="text" name="previousdate" value="11/18/2018">
+                                    <br>
+                                    <label for="exercise1">Deadlift</label>
+                                    <input id="exercise1" type="text" class="form-control" name="exercise1" placeholder="113lbs">
+                                    <br>
+                                    <label for="exercise2">Push Press</label>
+                                    <input id="exercise2" type="text" class="form-control" name="exercise2" placeholder="220lbs">
+                                    <br>
+                                    <label for="exercise3">Back Squat</label>
+                                    <input id="exercise3" type="text" class="form-control" name="exercise3" placeholder="253lbs">
+                                    <br>
                                 </form>
                             </h6>
+                            <input type="submit" value="Update Workout"> <input type="submit" value="Use Previous">
                             </p>
                         </div>  
                         <div class="col-md-6">
@@ -99,15 +105,31 @@
                                 <textarea rows="10" cols="30">example: No alcohol and lose 120 pounds
                                 </textarea>
                             </p>
+                            <input type="submit" value="Submit">
                         </div>
                     </div>
                     <!-- second row -->
                     <div class="row">
                         <div class="col-md-6">
                             <p>
-                                <h4>Items that need improvement</h4><br>
-                                <textarea rows="10" cols="30">example: Diet, Cardio, Sleep
-                                </textarea>
+                                <h4>Today's Recommended Workout</h4>
+                                <h6>
+                                    <form>
+                                        Today's Date:<br>
+                                        <input type="date" name="date" value="">
+                                        <br>
+                                        <label for="exercise1">Moderate Pace Run</label>
+                                        <input id="exercise1" type="text" class="form-control" name="exercise1" placeholder="30 Min">
+                                        <br>
+                                        <label for="exercise2">Upper Body Strength</label>
+                                        <input id="exercise2" type="text" class="form-control" name="exercise2" placeholder="12 Sets x 3">
+                                        <br>
+                                        <label for="exercise3">Stretch</label>
+                                        <input id="exercise3" type="text" class="form-control" name="exercise3" placeholder="5 Min">
+                                        <br>
+                                    </form>
+                                </h6>
+                                <input type="submit" value="Use Recommended Workout">
                             </p>
                         </div>  
                         <div class="col-md-6">
@@ -116,6 +138,7 @@
                                 <textarea rows="10" cols="30">example: Lose 10 pounds in 5 months
                                 </textarea>
                             </p>
+                            <input type="submit" value="Submit">
                         </div>
                     </div>
                     <!-- third row -->
@@ -140,11 +163,13 @@
                                 </form><br>
                                 <form>
                                     <label for="weight">Today's Weight</label>
-                                    <select name="weight" id="weight">
-                                        <option>Ideal</option>
-                                        <option>Overweight</option>
-                                        <option>Underweight</option>
-                                    </select>
+                                    <input type="text" list="weight" />
+                                    <datalist id="weight">
+                                        <option>110-135</option>
+                                        <option>135-175</option>
+                                        <option>175-200</option>
+                                        <option>200-220</option>
+                                    </datalist>
                                 </form><br>
                                 <form>
                                     <label for="stress">Stress Level</label>
@@ -163,10 +188,11 @@
                                     </select>
                                 </form><br>
                             </p>
+                            <input type="submit" value="Submit">
                         </div>
                     </div>
-                    
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Login">
+                    <input type="submit" value="Submit All">
                     <input type="submit" value="Share on Facebook">
                     <input type="reset">
                 </div>
