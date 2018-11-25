@@ -25,7 +25,7 @@ $(document).ready(function(){
              //   link: "./office.html"
             },
             {
-                //   name: "ournal",
+                //   name: "journal",
                 //   link: "./journal.html"
                },
             {
