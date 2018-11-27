@@ -33,8 +33,8 @@ $(document).ready(function(){
                link: "./workout.html"
             },
 			{
-                //name: "Login",
-                //link: "./login.html"
+                name: "Login",
+                link: "./login.html"
             },
             {
                 name: "Register",
