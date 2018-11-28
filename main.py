@@ -11,29 +11,9 @@ db=client.wod_test
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-#app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://blogz:blogz@localhost:8889/blogz"
-#app.config["SQLALCHEMY_ECHO"] = True
-#db = SQLAlchemy(app)
-
-#class Blog(db.Model):
-    #id = db.Column(db.Integer, primary_key = True)
-    #title = db.Column(db.String(40))
-    #body = db.Column(db.String(120))
-    #owner_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-    #def __init__(self, title, body, owner):
-        #self.title = title
-        #self.body = body
-        #self.owner = owner
 
 class User:
 
-    #id = db.Column(db.Integer, primary_key=True)
-    #username = db.Column(db.String(120))
-    #email = db.Column(db.String(120), unique=True)
-    #password = db.Column(db.String(120))
-    #blogs = db.relationship('Blog', backref='owner')
-    #logged_in = db.Column(db.Boolean())
 
     def __init__(self, username, email, password):
         self.username = username
