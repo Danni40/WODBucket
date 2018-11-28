@@ -8,12 +8,10 @@ import cgi
 client = MongoClient('mongodb://127.0.0.1:27017/test')
 db=client.wod_test
 
-
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
 class User:
-
 
     def __init__(self, username, email, password):
         self.username = username
@@ -30,14 +28,15 @@ def login():
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
-        users = User.query.filter_by(email=email)
+        #users = User.query.filter_by(email=email)
+        users = db.register.find_one( {email:email } )
         if users.count() == 1:
             user = users.first()
             if password == user.password:
                 session['user'] = user.username
                 session['logged_in'] = True
                 flash('welcome back, '+ user.username)
-                return redirect("/newblog")
+                return redirect("/workout")
         flash('bad username or password')
         return redirect("/login")
 
@@ -52,7 +51,6 @@ def signup():
             flash('Sorry! Cannot have any blank fields')
             return redirect('/signup')
         #existing_user = User.query.filter_by(email=email).first()
-        #TODO  Work on the db connections
         if not is_email(email):
             flash('zoiks! "' + email + '" does not seem like an email address')
             return redirect('/signup')
