@@ -13,32 +13,16 @@ $(document).ready(function(){
         item:
 		[
             {
-             //   name: "Home",
-             //   link: "./home.html"
-            },
-            {
-             //   name: "Traveling WOD",
-             //   link: "./traveling.html"
-            },
-            {
-             //   name: "Office WOD",
-             //   link: "./office.html"
-            },
-            {
-                //   name: "journal",
-                //   link: "./journal.html"
-               },
-            {
                name: "Homepage",
-               link: "./workout.html"
+               link: "/"
             },
 			{
                 name: "Login",
-                link: "./login.html"
+                link: "login"
             },
             {
-                name: "Register",
-                link: "./signup.html"
+                name: "Signup",
+                link: "signup.html"
             },
 		]
     });
@@ -64,7 +48,7 @@ $(document).ready(function(){
 				image:"./images/glyph-logo_May2016.png",
 				altTag:"Instagram"
             },
-			 {
+			{
                 name: "Contact Us",
                 link: "#",
 				image:"./images/Small_Logo.jpg",

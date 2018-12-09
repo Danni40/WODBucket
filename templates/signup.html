@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+
+<body>
+    <!-- Define main content areas in the site that receives information from data.js. First script is used for the top navigation and the second for the side navigation -->
+
+    <main role="main">
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-3">Record your progress</h1>
+                <p>“Progress is impossible without change, and those who
+                    cannot change their minds cannot change anything.”
+                    George Bernard Shaw</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- large row -->
+            <!-- Left Column-->
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="{{url_for('static', filename='/images/leftside.jpg')}}">
+                </div>
+
+                <!-- middle section  -->
+                <div class="col-md-6" style="margin-left: 5px;">
+                    <h2>Signup</h2>
+                    <form action="/signup" method="post">
+                        <p><span class="input-group-addon"><i class="far fa-user fa-3x"></i><input type="text" name="username" placeholder="Username"/></p>
+                        <p><span class="input-group-addon"><i class="fas fa-envelope-square fa-3x"></i><input type="text" name="email" placeholder="Email"/></p>
+                        <p><span class="input-group-addon"><i class="fas fa-unlock fa-3x"></i><input type="password" name="password" placeholder="Password"/></p>
+                        <p><span class="input-group-addon"><i class="fas fa-unlock fa-3x"></i><input type="password" name="verify" placeholder="Password"/></p>
+                        <p><input type="submit" value="Signup" /></p>
+                    </form>
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <ul class=flashes>
+                        {% for message in messages %}
+                        <li style="color:rgb(211, 3, 3);">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+                <!-- right column-->
+                <div class="col-md-3" style="margin-left: -15px;">
+                    <img src="{{url_for('static', filename='/images/rightside.jpg')}}" style="height: 100%">
+                </div>
+            </div>
+            <hr>
+        </div>
+        <!-- /container -->
+    </main>
+
+    {% endblock %}
+</body>
+
+</html>

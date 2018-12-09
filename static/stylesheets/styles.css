@@ -43,9 +43,6 @@ body .col-md-6 {
   padding: 1em;
   background: whitesmoke;
 }
-body .jumbotron {
-  background-image: url("./images/o-CROSSFIT-facebook.jpg");
-}
 body .jumbotron .container {
   background: rgba(0, 0, 0, 0.8);
   border-radius: 5px;
