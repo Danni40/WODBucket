@@ -7,7 +7,7 @@
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron">
             <div class="container">
-                <h1 class="display-3">Record your progress</h1>
+                <h1 class="display-3">Record and Track your progress</h1>
                 <p>“Progress is impossible without change, and those who
                     cannot change their minds cannot change anything.”
                     George Bernard Shaw</p>
@@ -55,12 +55,13 @@
                                     <input id="exercise{{loop.index}}_num" type="text" class="form-control" name="exercise{{loop.index}}_num" value="{{entry.exercises[i]}}">
                                     {% endfor %}
                                     {% endfor %}
-
                                     <a href="#C4"><input type="submit" value="Update Workout"></a>
                                 </form>
                             </h6>
                             {% else %} 
+                            <p><a href="/login">Login</a> or <a href="/signup">Register</a> to get started!!</p>
                             <form>
+                                
                                 <img src="{{url_for('static', filename='/images/Crossfit_BAM-81-28.jpg')}}" style="width: 100%">
                             </form>
                             {% endif %}
@@ -120,7 +121,7 @@
                                     {% endif %}
                                 </form>
                                 {% else %}
-                                <p><a href=".login">Login</a> or <a href=.signup.html>Register</a> to get started!!</p>
+                                <p><a href="/login">Login</a> or <a href="/signup">Register</a> to get started!!</p>
                                 {% endif %}
                             </h6>
                         </div>

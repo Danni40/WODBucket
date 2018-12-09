@@ -9,10 +9,8 @@
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron">
             <div class="container">
-                <h1 class="display-3">Record your progress</h1>
-                <p>“Progress is impossible without change, and those who
-                    cannot change their minds cannot change anything.”
-                    George Bernard Shaw</p>
+                <h1 class="display-3">Now is a perfect time to start</h1>
+                <p>Only YOU can stop you!</p>
             </div>
         </div>
 
@@ -27,12 +25,32 @@
                 <!-- middle section  -->
                 <div class="col-md-6" style="margin-left: 5px;">
                     <h2>Signup</h2>
-                    <form action="/signup" method="post">
+                    <form action="/signup" method="post" style="padding-top: 25px; padding-left: 25px;">
                         <p><span class="input-group-addon"><i class="far fa-user fa-3x"></i><input type="text" name="username" placeholder="Username"/></p>
                         <p><span class="input-group-addon"><i class="fas fa-envelope-square fa-3x"></i><input type="text" name="email" placeholder="Email"/></p>
                         <p><span class="input-group-addon"><i class="fas fa-unlock fa-3x"></i><input type="password" name="password" placeholder="Password"/></p>
-                        <p><span class="input-group-addon"><i class="fas fa-unlock fa-3x"></i><input type="password" name="verify" placeholder="Password"/></p>
+                        <p><span class="input-group-addon"><i class="fas fa-unlock fa-3x"></i><input type="password" name="verify" placeholder="Verify Password"/></p>
                         <p><input type="submit" value="Signup" /></p>
+                    </form>
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <ul class=flashes>
+                        {% for message in messages %}
+                        <li style="color:rgb(211, 3, 3);">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% endwith %}
+                
+                <!--second row middle section-->
+                    <h2>Testmonials</h2>
+                    <form action="/signup" method="post">
+                        <div class="col-md-3">
+                            <p style="padding-top: 25px; padding-left: 25px;">
+                            <img src="{{url_for('static', filename='/images/fitCathy.jpg')}}">
+                            <h5>"So far I've lost 54lbs and I feel great!!</h5>
+                            </p>
+                        </div>
                     </form>
                     {% with messages = get_flashed_messages() %}
                     {% if messages %}

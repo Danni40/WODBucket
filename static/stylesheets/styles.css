@@ -38,6 +38,13 @@ body .col-md-4 img {
   width: 95%;
   height: 95%;
 }
+
+#over img {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
 body .col-md-6 {
   border: 2px solid black;
   padding: 1em;

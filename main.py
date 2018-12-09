@@ -6,11 +6,11 @@ import traceback
 import datetime
 import cgi
 
-#Step 1: Connect to MongoDB - Note: Change connection string as needed
+#Connect to MongoDB - Note: Change connection string as needed
 client = MongoClient('mongodb://127.0.0.1:27017/test')
 db=client.wod_test
 
-
+#initiate appe and static folders for static artifacts such as pics and stylesheets
 app = Flask(__name__, static_url_path = "", static_folder = "static")
 app.config['DEBUG'] = True
 app.config['STATIC_FOLDER'] = '/static'
@@ -23,14 +23,17 @@ class User:
         self.password = password
         self.logged_in = False
 
+#add route for images
 @app.route("/images")
 def images():
     return render_template('index.html')
 
+#add route for stylesheets
 @app.route("/stylesheets")
 def stylesheets():
     return render_template('index.html')
 
+#code login routing
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
@@ -53,8 +56,10 @@ def login():
         flash('bad username or password')
         return redirect("/login")
 
+#code update workout
 @app.route("/update", methods=['GET', 'POST'])
 def update():
+    #handle errors and input validation
     exercise1_error=''
     exercise2_error=''
     exercise3_error=''
@@ -99,6 +104,7 @@ def update():
     except Exception:
             traceback.print_exc()
 
+#code signup page and route appropriately
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
@@ -132,7 +138,7 @@ def signup():
         if password != verify:
             flash('passwords did not match')
             return redirect('/signup')
-        #user = User(username=username, email=email, password=password)
+
         user = {
         'username' : username,
         'email' : email,
@@ -147,6 +153,7 @@ def signup():
     else:
         return render_template('signup.html')
 
+#handle input validation
 def is_email(string):
     atsign_index = string.find('@')
     atsign_present = atsign_index >= 0
@@ -157,12 +164,14 @@ def is_email(string):
         domain_dot_present = domain_dot_index >= 0
         return domain_dot_present
 
+#code logout and route appropriately
 @app.route("/logout", methods=['POST'])
 def logout():
     session.pop('logged_in', None)
     del session['user']
     return redirect("/")
 
+#create the index route
 @app.route('/', methods=['GET','POST'])
 def index():
     if ('user' in session):
@@ -177,8 +186,7 @@ def index():
         return render_template('index.html', now=now.date())
     #return render_template('workout.html')
 
-    
-
+#have a page for all workouts to show
 @app.route("/workout", methods=['GET','POST'])
 def workout():
     if request.args.get('id'):
@@ -191,47 +199,7 @@ def workout():
         [i for i in db.workouts.find({"_id": ObjectId(request.args.get('id'))})]
         return render_template("workout.html", i=i, workout=workout, _id=_id, userWorkoutsCount=userWorkoutsCount, userWorkouts=userWorkouts, username=username)
 
-
-@app.route("/newblog", methods=['POST', 'GET'])
-def index2():
-    title_error=''
-    body_error=''
-    blogs = Blog.query.all()
-    owner = User.query.filter_by(username=session['user']).first()
-    print(blogs)
-
-    try:
-        if request.method == 'POST':
-
-            blog_body = request.form['blog_body']
-            blog_name = request.form['blog_name']
-
-            new_blog = Blog(blog_name, blog_body, owner)
-            db.session.add(new_blog)
-            
-
-            if not blog_name:
-                title_error='no blog title entered'
-
-            if not blog_body:
-                body_error='no blog body entered'
-
-            if not title_error and not body_error:
-                db.session.commit()
-                blog_id = new_blog.id
-                return redirect('/blog?id={blog_id}'.format(blog_id=blog_id))
-
-            else:
-
-                return render_template('newblog.html', title="New Blog", blogs=blogs, 
-                    body_error=body_error, title_error=title_error, blog_body=blog_body, blog_name=blog_name, owner=owner)
-
-        else:
-            return render_template('newblog.html', title="New Blog", blogs=blogs,)
-            
-    except Exception:
-            traceback.print_exc()
-
+#allow only certain pages to be accessible when not logged in
 endpoints_without_login = ['login', 'signup','index', 'static', 'images', 'stylesheets']
 
 @app.before_request
@@ -239,6 +207,7 @@ def require_login():
     if not ('user' in session or request.endpoint in endpoints_without_login):
         return redirect("/signup")
 
+#in production, provide a unique key for security
 app.secret_key = 'dksfmskfslvnmksmkslmgskldm'
 
 if __name__ == '__main__':
