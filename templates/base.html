@@ -31,8 +31,12 @@
             item:
             [
                 {
-                   name: "Home",
+                   name: "Daily Workout",
                    link: "/"
+                },
+                {
+                   name: "My Workouts",
+                   link: "/workout"
                 },
                 {
                     name: "Login",
@@ -47,10 +51,15 @@
         
         var sideNav = Mustache.render(sideNavigation, {
             item:
-            [
+            [   {   
+                    name: "Twitter",
+                    link: "https://twitter.com/WOD_Bucket",
+                    image:"./images/Twitter_Logo_WhiteOnBlue.png",
+                    altTag:"Twitter"
+                },   
                 {
                     name: "Instagram",
-                    link: "#",
+                    link: "https://www.instagram.com/wod_bucket/",
                     image:"./images/glyph-logo_May2016.png",
                     altTag:"Instagram"
                 },
@@ -109,7 +118,7 @@
   <!-- Responsive top navigation bar -->
     <nav id="mainNavigation" class="navbar navbar-expand-md navbar-dark fixed-top">
 
-        <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='/images/Small_Logo.jpg')}}">WOD Bucket</a>
+        <a class="navbar-brand" href="/"><img src="{{url_for('static', filename='/images/Small_Logo.jpg')}}">WOD Bucket</a>
         
         <!-- Mustache renders the top navigation links in the below unordered list -->
         <ul class="navbar-nav mr-auto" id="render_topLinks"></ul>
@@ -140,18 +149,29 @@
 
     <div id="content1">{% block content1 %}{% endblock %}</div>
     <div class="container">
-        <hr>
-        <div>
-            <h3>Connect with us</h3>
-            <!-- Mustache renders the side navigation links in the below unordered list -->
-            <ul class="navbar-nav mr-auto" id="render_sideLinks"></ul>
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Connect with us</h3>
+                <!-- Mustache renders the side navigation links in the below unordered list -->
+                <ul class="navbar-nav mr-auto" id="render_sideLinks"></ul>
+            </div>
+            <hr>
+            <div class="col-md-3">
+                <!--put something here if i like-->
+            </div>
+            <div class="col-md-3">
+            <!--put something here if i like-->
+            </div>
+            <div class="col-md-3">
+            <!--put something here if i like-->
+            </div>
         </div>
     </div>
     <footer class="container">
-            <!-- We are using jQuery to populate the current year below -->
-            <p>&copy; DSL Jounaling Company
-                <span id="currentYear"></span>
-            </p>
-        </footer>
+        <!-- We are using jQuery to populate the current year below -->
+        <p>&copy; DSL Jounaling Company
+            <span id="currentYear"></span>
+        </p>
+    </footer>
     </body>
 </html>
