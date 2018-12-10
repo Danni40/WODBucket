@@ -44,39 +44,43 @@
                             {% if 'user' in session %}
                                 {% if userWorkoutsCount == 0 %}
                                 <h4>Create Workout</h4>
-                                <h6 style="background-color:blueviolet">
+                                <h6 style="background-color:blanchedalmond">
                                     <form action="/update" method="post">
                                         Date:
                                         <input type="date" name="date" value={{now}}>
                                         <br>
-                                        <label for="exercise1" value="{{exercise1}}"></label> <label for="exercise1_num" value="{{exercise1_num}}"></label>
-                                        <input id="exercise1" type="text" class="form-control" name="exercise1" value="{{exercise1_num}}">
-                                        <input id="exercise1_num" type="text" class="form-control" name="exercise1_num" value="{{exercise1_num}}">
+                                        <label for="exercise1" value="{{exercise1}}">Exercise 1
+                                        <input id="exercise1" type="text" class="form-control" name="exercise1" value="{{exercise1_num}}"></label> 
+                                        <label for="exercise1_num" value="{{exercise1_num}}">Measurement
+                                        <input id="exercise1_num" type="text" class="form-control" name="exercise1_num" value="{{exercise1_num}}"></label>
+                                        <br>
 
-
-                                        <label for="exercise2" value="{{exercise2}}"></label><label for="exercise2_num" value="{{exercise2_num}}"></label>
-                                        <input id="exercise2" type="text" class="form-control" name="exercise2" value="{{exercise2}}">
-                                        <input id="exercise2_num" type="text" class="form-control" name="exercise2_num" value="{{exercise2_num}}">    
-
-                                        <label for="exercise3" value="{{exercise3}}"></label><label for="exercise3_num" value="{{exercise3_num}}"></label>
-                                        <input id="exercise3" type="text" class="form-control" name="exercise3" value="{{exercise3}}">
-                                        <input id="exercise3_num" type="text" class="form-control" name="exercise3_num" value="{{exercise3_num}}">   
-
+                                        <label for="exercise2" value="{{exercise2}}">Exercise 2
+                                        <input id="exercise2" type="text" class="form-control" name="exercise2" value="{{exercise2}}"></label>
+                                        <label for="exercise2_num" value="{{exercise2_num}}">Measurement
+                                        <input id="exercise2_num" type="text" class="form-control" name="exercise2_num" value="{{exercise2_num}}"></label>   
+                                        <br>
+                                        <label for="exercise3" value="{{exercise3}}">Exercise 3
+                                        <input id="exercise3" type="text" class="form-control" name="exercise3" value="{{exercise3}}"></label>
+                                        <label for="exercise3_num" value="{{exercise3_num}}">Measurement
+                                        <input id="exercise3_num" type="text" class="form-control" name="exercise3_num" value="{{exercise3_num}}"></label> 
+                                        <br>
                                         <input type="submit" value="Update Workout">
                                     </form>
                                 </h6>
                                 {% else %}
                             <h4>Current Workout</h4>
-                            <h6 style="background-color:blueviolet">
+                            <h6 style="background-color:blanchedalmond">
                                 <form action="/update" method="post">
                                     Date:
                                     <input type="date" name="date" value={{now}}>
                                     <br>
                                     {% for entry in lastEntry %}
                                     {% for i in entry.exercises %} 
-                                    <label for="exercise{{loop.index}}" value="{{i}}"></label> <label for="exercise{{loop.index}}_num" value="{{entry.exercises[i]}}"></label>
-                                    <input id="exercise{{loop.index}}" type="text" class="form-control" name="exercise{{loop.index}}" value="{{i}}">
-                                    <input id="exercise{{loop.index}}_num" type="text" class="form-control" name="exercise{{loop.index}}_num" value="{{entry.exercises[i]}}">
+                                    <label for="exercise{{loop.index}}" value="{{i}}">Exercise {{loop.index}}
+                                    <input id="exercise{{loop.index}}" type="text" class="form-control" name="exercise{{loop.index}}" value="{{i}}"></label> 
+                                    <label for="exercise{{loop.index}}_num" value="{{entry.exercises[i]}}">Measurement
+                                    <input id="exercise{{loop.index}}_num" type="text" class="form-control" name="exercise{{loop.index}}_num" value="{{entry.exercises[i]}}"></label><br>
                                     {% endfor %}
                                     {% endfor %}
                                     <a href="#C4"><input type="submit" value="Update Workout"></a>
@@ -97,19 +101,25 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h4>Today's Recommended Workout</h4>
-                            <h6>
-                                <form>
+                            <h6 style="background-color:azure">
+                                <form action="/update" method="post">
                                     Today's Date:<br>
-                                    <h6>{{ now }}</h6>
+                                    <h6><input type="date" name="date" value={{now}}></h6>
                                     <br><br>
-                                    <label for="exercise1">Moderate Pace Run</label>
-                                    <input id="exercise1" type="text" class="form-control" name="exercise1" placeholder="30 Min">
+                                    <label for="exercise1">Cardio
+                                    <input id="exercise1" type="text" class="form-control" name="exercise1" value="{{exercise1}}"></label>
+                                    <label for="exercise1_num" value="{{exercise1_num}}">Measurement
+                                    <input id="exercise1_num" type="text" class="form-control" name="exercise1_num" value="{{exercise1_num}}"></label>
                                     <br>
-                                    <label for="exercise2">Upper Body Strength</label>
-                                    <input id="exercise2" type="text" class="form-control" name="exercise2" placeholder="12 Sets x 3">
+                                    <label for="exercise2">Strength
+                                    <input id="exercise2" type="text" class="form-control" name="exercise2" value="{{exercise2}}"></label>
+                                    <label for="exercise2_num" value="{{exercise2_num}}">Measurement
+                                    <input id="exercise2_num" type="text" class="form-control" name="exercise2_num" value="{{exercise2_num}}"></label>
                                     <br>
-                                    <label for="exercise3">Stretch</label>
-                                    <input id="exercise3" type="text" class="form-control" name="exercise3" placeholder="5 Min">
+                                    <label for="exercise3">Balance and Stretch
+                                    <input id="exercise3" type="text" class="form-control" name="exercise3" value="{{exercise3}}"></label>
+                                    <label for="exercise2_num" value="{{exercise2_num}}">Measurement
+                                    <input id="exercise3_num" type="text" class="form-control" name="exercise3_num" value="{{exercise3_num}}"></label>
                                     <br>
                                     <input type="submit" value="Use Recommended Workout">
                                 </form>
@@ -120,12 +130,12 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h3 id="C4">Workouts</h3>
-                            <h6>
+                            <h6 style="background-color:aliceblue">
                                 {% if 'user' in session %}
                                 <form>
                                     <h2 style="color:darkred">{{username}}</h2>
                                     {% if userWorkoutsCount == 0 %}
-                                    <p>No Workouts yet {{userWorkoutsCount}}</p>
+                                    <p>No Workouts yet</p>
                                     {% else %}
                                     Workouts Entered to date: <h2 style="color:darkred">{{userWorkoutsCount}}</h2>
                                     

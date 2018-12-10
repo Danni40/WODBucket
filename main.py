@@ -149,7 +149,7 @@ def signup():
         #db.session.commit()
         session['user'] = username
         session['logged_in'] = True
-        return render_template('index.html')
+        return redirect('/')
     else:
         return render_template('signup.html')
 
@@ -175,12 +175,24 @@ def logout():
 @app.route('/', methods=['GET','POST'])
 def index():
     if ('user' in session):
+        #get workouts for the specific user
         username = session['user']
         userWorkoutsCount = db.workouts.count({'username': username})
         userWorkouts = db.workouts.find({'username': username})
         now = datetime.datetime.now()
         lastEntry = db.workouts.find({'username': username}).limit(1).sort("_id",-1)
-        return render_template('index.html', now=now.date(), userWorkoutsCount=userWorkoutsCount, userWorkouts=userWorkouts, username=username, lastEntry=lastEntry)
+        
+        #populate the recommended workout
+        cardio = ['Walk','Bike','Run', 'Skate', 'Swim','Jump Rope','Row', 'Stair Climber','Sprint', 'Elliptical','Spike Ball','Interval Run', 'Ergo']
+        strength = ['Kettlebell Swing','Deadlift','Front Squat','Back Squat','Overhead Squat', 'Benchpress', 'Pullup', 'Wall Ball', 'Pushup', 'Rope Climb']
+        balance_and_stretching = ['Balance Walk', 'One Foot Stand', 'Front Arm Raise', 'Calf Stretch', 'Lower Back Stretch', 'Thigh Stretch', 'Neck Rotation', 'Chest Stretch','Yoga Stretch','Back Stretch']
+        exercise1 = cardio[randint(0, (len(cardio)-1))]
+        exercise2 = strength[randint(0, (len(strength)-1))]
+        exercise3 = balance_and_stretching[randint(0,  (len(balance_and_stretching)-1))]
+        exercise1_num = str(randint(1, 5)) + ' miles'
+        exercise2_num =  str(randint(12, 15)) + ' reps for ' + str(randint(1, 3)) + ' sets'
+        exercise3_num =  str(randint(3, 5)) + ' minutes'
+        return render_template('index.html', now=now.date(), userWorkoutsCount=userWorkoutsCount, userWorkouts=userWorkouts, username=username, lastEntry=lastEntry, exercise1=exercise1, exercise2=exercise2, exercise3=exercise3, exercise1_num=exercise1_num, exercise2_num=exercise2_num, exercise3_num=exercise3_num)
     else:
         now = datetime.datetime.now()
         return render_template('index.html', now=now.date())

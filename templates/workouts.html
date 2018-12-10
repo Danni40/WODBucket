@@ -7,7 +7,7 @@
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron">
             <div class="container">
-                <h1 class="display-3">Change This section</p>
+                <h1 class="display-3">Move Your Body!</h1><p>"I can think. I can sleep. I can move. I can ride my bike. I can dream."  Bill Walton</p>
             </div>
         </div>
         <div class="container">
@@ -37,13 +37,13 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                           {{i}}
-                            <h4>Workouts for {{username}} :   {{i.date}}</h4>
-                            <h6>
+                            <h4>Workouts for {{username}} :</h4>
+                            <h6 style="background-color: azure">
                                 {% for i in userWorkouts %}
+                                <div class="col-md-12">
                                 <form action="/update" method="post">
                                     Date:
-                                    <input type="date" name="date" value={{now}}>
+                                    <input type="date" name="date" value={{i.date}}>
                                     <br>
                                     {% for item in i.exercises %}
         
@@ -53,11 +53,11 @@
                                         value="{{item}}">
                                     <input id="exercise{{loop.index}}_num" type="text" class="form-control" name="exercise{{loop.index}}_num"
                                         value="{{i.exercises[item]}}">
-        
                                     {% endfor %}
                                     
                                     <input type="submit" value="Use this Workout">
                                 </form>
+                                </div>
                                 {% endfor %}
                             </h6>
                         </div>
