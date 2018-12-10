@@ -132,7 +132,7 @@ def signup():
             flash('Username, email or password cannot contain any spaces.')
             return redirect('/signup')
         if len(username) < 3 or len(username) > 20:
-            flash('Password must meet length requirements')
+            flash('Username must meet length requirements')
             return redirect('/signup')
         name_error="That's not a valid username"
         if password != verify:
@@ -186,9 +186,14 @@ def index():
         return render_template('index.html', now=now.date())
     #return render_template('workout.html')
 
-#have a page for all workouts to show
+#have a page individual workouts to show
 @app.route("/workout", methods=['GET','POST'])
 def workout():
+    if not request.args:
+        username = session['user']
+        userWorkouts = db.workouts.find({'username': username})
+        [i for i in db.workouts.find({"username": username})]
+        return render_template("workouts.html", i=i, username=username, userWorkouts=userWorkouts)
     if request.args.get('id'):
         username = session['user']
         _id = "ObjectId('" + request.args.get('id') + "')"
@@ -198,6 +203,12 @@ def workout():
         workout = db.workouts.find_one({'_id': _id})
         [i for i in db.workouts.find({"_id": ObjectId(request.args.get('id'))})]
         return render_template("workout.html", i=i, workout=workout, _id=_id, userWorkoutsCount=userWorkoutsCount, userWorkouts=userWorkouts, username=username)
+
+
+#have a page for all workouts to show
+@app.route("/workouts", methods=['GET'])
+def workouts():
+    return render_template("workouts.html", i=i, username=username, userWorkouts=userWorkouts)
 
 #allow only certain pages to be accessible when not logged in
 endpoints_without_login = ['login', 'signup','index', 'static', 'images', 'stylesheets']
