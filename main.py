@@ -46,7 +46,6 @@ def login():
         user_count=db.register.find( {'email': email } ).count()
         if user_count == 1:
             user = db.register.find_one({'email':email})
-            #password=user.get('password')
 
             if password == user.get('password'):
                 session['user'] = username
@@ -115,8 +114,6 @@ def signup():
         if username == '' or email == '' or password == '' or verify == '':
             flash('Sorry! Cannot have any blank fields')
             return redirect('/signup')
-        #existing_user = User.query.filter_by(email=email).first()
-        #TODO  Work on the db connections
         if not is_email(email):
             flash('zoiks! "' + email + '" does not seem like an email address')
             return redirect('/signup')
@@ -144,9 +141,7 @@ def signup():
         'email' : email,
         'password' : password,
         }
-        #db.session.add(user)
         result=db.register.insert_one(user)
-        #db.session.commit()
         session['user'] = username
         session['logged_in'] = True
         return redirect('/')
@@ -196,7 +191,6 @@ def index():
     else:
         now = datetime.datetime.now()
         return render_template('index.html', now=now.date())
-    #return render_template('workout.html')
 
 #have a page individual workouts to show
 @app.route("/workout", methods=['GET','POST'])
@@ -206,6 +200,7 @@ def workout():
         userWorkouts = db.workouts.find({'username': username})
         [i for i in db.workouts.find({"username": username})]
         return render_template("workouts.html", i=i, username=username, userWorkouts=userWorkouts)
+    
     if request.args.get('id'):
         username = session['user']
         _id = "ObjectId('" + request.args.get('id') + "')"
@@ -215,7 +210,6 @@ def workout():
         workout = db.workouts.find_one({'_id': _id})
         [i for i in db.workouts.find({"_id": ObjectId(request.args.get('id'))})]
         return render_template("workout.html", i=i, workout=workout, _id=_id, userWorkoutsCount=userWorkoutsCount, userWorkouts=userWorkouts, username=username)
-
 
 #have a page for all workouts to show
 @app.route("/workouts", methods=['GET'])
@@ -228,7 +222,7 @@ endpoints_without_login = ['login', 'signup','index', 'static', 'images', 'style
 @app.before_request
 def require_login():
     if not ('user' in session or request.endpoint in endpoints_without_login):
-        return redirect("/signup")
+        return redirect("/")
 
 #in production, provide a unique key for security
 app.secret_key = 'dksfmskfslvnmksmkslmgskldm'

@@ -47,12 +47,11 @@
                                     <br>
                                     {% for item in i.exercises %}
         
-                                    <label for="exercise{{loop.index}}" value="{{item}}"></label> <label for="exercise{{loop.index}}_num"
-                                        value="{{i.exercises[item]}}"></label>
-                                    <input id="exercise{{loop.index}}" type="text" class="form-control" name="exercise{{loop.index}}"
-                                        value="{{item}}">
-                                    <input id="exercise{{loop.index}}_num" type="text" class="form-control" name="exercise{{loop.index}}_num"
-                                        value="{{i.exercises[item]}}">
+                                    <label for="exercise{{loop.index}}" value="{{item}}">Exercise {{loop.index}}
+                                    <input id="exercise{{loop.index}}" type="text" class="form-control" name="exercise{{loop.index}}" value="{{item}}"></label>
+                                    <label for="exercise{{loop.index}}_num" value="{{i.exercises[item]}}">Measurement
+                                    <input id="exercise{{loop.index}}_num" type="text" class="form-control" name="exercise{{loop.index}}_num" value="{{i.exercises[item]}}"></label>
+                                    <br>
                                     {% endfor %}
                                     
                                     <input type="submit" value="Use this Workout">
