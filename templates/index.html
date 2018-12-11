@@ -49,21 +49,21 @@
                                         Date:
                                         <input type="date" name="date" value={{now}}>
                                         <br>
-                                        <label for="exercise1" value="{{exercise1}}">Exercise 1
-                                        <input id="exercise1" type="text" class="form-control" name="exercise1" value="{{exercise1_num}}"></label> 
+                                        <label for="exercise1" aria-placeholder="{{exercise1}}">Exercise 1
+                                        <input id="exercise1" type="text" class="form-control" name="exercise1" placeholder="Example: {{exercise1}}"></label> 
                                         <label for="exercise1_num" value="{{exercise1_num}}">Measurement
-                                        <input id="exercise1_num" type="text" class="form-control" name="exercise1_num" value="{{exercise1_num}}"></label>
+                                        <input id="exercise1_num" type="text" class="form-control" name="exercise1_num" placeholder="Example:{{exercise1_num}}"></label>
                                         <br>
 
                                         <label for="exercise2" value="{{exercise2}}">Exercise 2
-                                        <input id="exercise2" type="text" class="form-control" name="exercise2" value="{{exercise2}}"></label>
+                                        <input id="exercise2" type="text" class="form-control" name="exercise2" placeholder="Example:{{exercise2}}"></label>
                                         <label for="exercise2_num" value="{{exercise2_num}}">Measurement
-                                        <input id="exercise2_num" type="text" class="form-control" name="exercise2_num" value="{{exercise2_num}}"></label>   
+                                        <input id="exercise2_num" type="text" class="form-control" name="exercise2_num" placeholder="Example:{{exercise2_num}}"></label>   
                                         <br>
                                         <label for="exercise3" value="{{exercise3}}">Exercise 3
-                                        <input id="exercise3" type="text" class="form-control" name="exercise3" value="{{exercise3}}"></label>
+                                        <input id="exercise3" type="text" class="form-control" name="exercise3" placeholder="Example:{{exercise3}}"></label>
                                         <label for="exercise3_num" value="{{exercise3_num}}">Measurement
-                                        <input id="exercise3_num" type="text" class="form-control" name="exercise3_num" value="{{exercise3_num}}"></label> 
+                                        <input id="exercise3_num" type="text" class="form-control" name="exercise3_num" placeholder="Example:{{exercise3_num}}"></label> 
                                         <br>
                                         <input type="submit" value="Update Workout">
                                     </form>
@@ -88,7 +88,7 @@
                             </h6>
                             {% endif %}
                             {% else %} 
-                            <p><a href="/login">Login</a> or <a href="/signup">Register</a> to get started!!</p>
+                            <p><a href="/login">Login</a> or <a href="/signup">Register</a> to create and see workouts!!</p>
                             <form>
                                 
                                 <img src="{{url_for('static', filename='/images/Crossfit_BAM-81-28.jpg')}}" style="width: 100%">
