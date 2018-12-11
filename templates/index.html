@@ -48,7 +48,7 @@
                                     <form action="/update" method="post">
                                         Date:
                                         <input type="date" name="date" value={{now}}>
-                                        <br>
+                                        <br><br>
                                         <label for="exercise1" aria-placeholder="{{exercise1}}">Exercise 1
                                         <input id="exercise1" type="text" class="form-control" name="exercise1" placeholder="Example: {{exercise1}}"></label> 
                                         <label for="exercise1_num" value="{{exercise1_num}}">Measurement
@@ -74,7 +74,7 @@
                                 <form action="/update" method="post">
                                     Date:
                                     <input type="date" name="date" value={{now}}>
-                                    <br>
+                                    <br><br>
                                     {% for entry in lastEntry %}
                                     {% for i in entry.exercises %} 
                                     <label for="exercise{{loop.index}}" value="{{i}}">Exercise {{loop.index}}
