@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+
+<body>
+    <main role="main">
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-3">Persist!</h1>
+            <p>“Energy and persistence conquers all things.” Benjamin Franklin
+            </p>
+            </div>
+        </div>
+        <div class="container">
+            <!-- large row -->
+            <!-- Left Column-->
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{url_for('static', filename='/images/crossfit__square.jpg')}}">
+                </div>
+        
+                <!-- middle section  -->
+                <div class="col-md-8">
+                    <!-- first row -->
+        
+                    <div class="row">
+                        <div class="col-md-12">
+                            {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                            <ul class=flashes>
+                                {% for message in messages %}
+                                <li style="color:rgb(211, 3, 3);">{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                            {% endwith %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Workout for {{username}} </h4>
+                            <h6 style="background-color:beige">
+                                {% for value in i %}
+                                <form action="/update" method="post">
+                                    Date:
+                                    <input type="date" name="date" value={{value.date}}>
+                                    <br>
+                                    {% for item in value.exercises %}
+        
+                                    <label for="exercise{{loop.index}}" value="{{item}}">Exercise {{loop.index}}
+                                    <input id="exercise{{loop.index}}" type="text" class="form-control" name="exercise{{loop.index}}" value="{{item}}"></label>
+                                    <label for="exercise{{loop.index}}_num" value="{{value.exercises[item]}}">Measurement
+                                    <input id="exercise{{loop.index}}_num" type="text" class="form-control" name="exercise{{loop.index}}_num" value="{{value.exercises[item]}}"></label>
+                                    <br>
+                                    {% endfor %}
+        
+                                    <input type="submit" value="Use this Workout">
+                                </form>
+                                {% endfor %}
+                            </h6>
+                        </div>
+                    </div>
+                    </main>
+                    {% endblock %}
+                    </body>

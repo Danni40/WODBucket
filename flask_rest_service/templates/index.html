@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% block content %}
+
+<body>
+    <main role="main">
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="display-3">Record and Track your progress</h1>
+                <p>“Progress is impossible without change, and those who
+                    cannot change their minds cannot change anything.”
+                    George Bernard Shaw</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- large row -->
+            <!-- Left Column-->
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{url_for('static', filename='/images/leftside.jpg')}}">
+                </div>
+
+                <!-- middle section  -->
+                <div class="col-md-8">
+                    <!-- first row -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                            <ul class=flashes>
+                                {% for message in messages %}
+                                <li style="color:rgb(211, 3, 3);">{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                            {% endwith %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            {% if 'user' in session %}
+                                {% if userWorkoutsCount == 0 %}
+                                <h4>Create Workout</h4>
+                                <h6 style="background-color:blanchedalmond">
+                                    <form action="/update" method="post">
+                                        Date:
+                                        <input type="date" name="date" value={{now}}>
+                                        <br><br>
+                                        <label for="exercise1" aria-placeholder="{{exercise1}}">Exercise 1
+                                        <input id="exercise1" type="text" class="form-control" name="exercise1" value="Example: {{exercise1}}"></label> 
+                                        <label for="exercise1_num" value="{{exercise1_num}}">Measurement
+                                        <input id="exercise1_num" type="text" class="form-control" name="exercise1_num" value="Example:{{exercise1_num}}"></label>
+                                        <br>
+
+                                        <label for="exercise2" value="{{exercise2}}">Exercise 2
+                                        <input id="exercise2" type="text" class="form-control" name="exercise2" value="Example:{{exercise2}}"></label>
+                                        <label for="exercise2_num" value="{{exercise2_num}}">Measurement
+                                        <input id="exercise2_num" type="text" class="form-control" name="exercise2_num" value="Example:{{exercise2_num}}"></label>   
+                                        <br>
+                                        <label for="exercise3" value="{{exercise3}}">Exercise 3
+                                        <input id="exercise3" type="text" class="form-control" name="exercise3" value="Example:{{exercise3}}"></label>
+                                        <label for="exercise3_num" value="{{exercise3_num}}">Measurement
+                                        <input id="exercise3_num" type="text" class="form-control" name="exercise3_num" value="Example:{{exercise3_num}}"></label> 
+                                        <br>
+                                        <input type="submit" value="Update Workout">
+                                    </form>
+                                </h6>
+                                {% else %}
+                            <h4>Current Workout</h4>
+                            <h6 style="background-color:blanchedalmond">
+                                <form action="/update" method="post">
+                                    Date:
+                                    <input type="date" name="date" value={{now}}>
+                                    <br><br>
+                                    {% for entry in lastEntry %}
+                                    {% for i in entry.exercises %} 
+                                    <label for="exercise{{loop.index}}" value="{{i}}">Exercise {{loop.index}}
+                                    <input id="exercise{{loop.index}}" type="text" class="form-control" name="exercise{{loop.index}}" value="{{i}}"></label> 
+                                    <label for="exercise{{loop.index}}_num" value="{{entry.exercises[i]}}">Measurement
+                                    <input id="exercise{{loop.index}}_num" type="text" class="form-control" name="exercise{{loop.index}}_num" value="{{entry.exercises[i]}}"></label><br>
+                                    {% endfor %}
+                                    {% endfor %}
+                                    <a href="#C4"><input type="submit" value="Update Workout"></a>
+                                </form>
+                            </h6>
+                            {% endif %}
+                            {% else %} 
+                            <p><a href="/login">Login</a> or <a href="/signup">Register</a> to create and see workouts!!</p>
+                            <form>
+                                
+                                <img src="{{url_for('static', filename='/images/Crossfit_BAM-81-28.jpg')}}" style="width: 100%">
+                            </form>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                    <!-- second row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Today's Recommended Workout</h4>
+                            <h6 style="background-color:azure">
+                                <form action="/update" method="post">
+                                    Today's Date:<br>
+                                    <h6><input type="date" name="date" value={{now}}></h6>
+                                    <br><br>
+                                    <label for="exercise1">Cardio
+                                    <input id="exercise1" type="text" class="form-control" name="exercise1" value="{{exercise1}}"></label>
+                                    <label for="exercise1_num" value="{{exercise1_num}}">Measurement
+                                    <input id="exercise1_num" type="text" class="form-control" name="exercise1_num" value="{{exercise1_num}}"></label>
+                                    <br>
+                                    <label for="exercise2">Strength
+                                    <input id="exercise2" type="text" class="form-control" name="exercise2" value="{{exercise2}}"></label>
+                                    <label for="exercise2_num" value="{{exercise2_num}}">Measurement
+                                    <input id="exercise2_num" type="text" class="form-control" name="exercise2_num" value="{{exercise2_num}}"></label>
+                                    <br>
+                                    <label for="exercise3">Balance and Stretch
+                                    <input id="exercise3" type="text" class="form-control" name="exercise3" value="{{exercise3}}"></label>
+                                    <label for="exercise2_num" value="{{exercise2_num}}">Measurement
+                                    <input id="exercise3_num" type="text" class="form-control" name="exercise3_num" value="{{exercise3_num}}"></label>
+                                    <br>
+                                    <input type="submit" value="Use Recommended Workout">
+                                </form>
+                            </h6>
+                        </div>
+                    </div>
+                    <!-- third row -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 id="C4">Workouts</h3>
+                            <h6 style="background-color:aliceblue">
+                                {% if 'user' in session %}
+                                <form>
+                                    <h2 style="color:darkred">{{username}}</h2>
+                                    {% if userWorkoutsCount == 0 %}
+                                    <p>No Workouts yet</p>
+                                    {% else %}
+                                    Workouts Entered to date: <h2 style="color:darkred">{{userWorkoutsCount}}</h2>
+                                    
+                                        {% for workout in userWorkouts %}
+                                        <ul>
+                                        <li>
+                                            <a href="/workout?id={{workout._id}}">{{ workout.date}}</a>
+                                            <ul>
+                                                {% for i in workout.exercises %}
+                                                <li>
+                                                    {{i}} : {{workout.exercises[i]}}
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                        </ul>
+                                        {% endfor %}
+                                    {% endif %}
+                                </form>
+                                {% else %}
+                                <p><a href="/login">Login</a> or <a href="/signup">Register</a> to get started!!</p>
+                                {% endif %}
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- right column-->
+    </main>
+
+
+{% endblock %}
