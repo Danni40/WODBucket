@@ -29,4 +29,5 @@ DEFAULT_REPRESENTATIONS = {'application/json': output_json}
 api = Api(app)
 api.representations = DEFAULT_REPRESENTATIONS
 
+#import the app
 import flask_rest_service.main
