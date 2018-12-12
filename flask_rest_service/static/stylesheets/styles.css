@@ -1,0 +1,88 @@
+main form {
+  border: 2px solid black;
+}
+body h1,
+body h2,
+body h3,
+body h4 {
+  color: #eb0000;
+}
+body a.btn {
+  background-color: #ff3d3d;
+}
+body a.btn:hover {
+  background-color: #ff0505;
+}
+body #mainNavigation {
+  background-color: red;
+}
+body #mainNavigation .navbar-brand {
+  background-color: #e60000;
+  padding: 5px;
+  font-weight: bold;
+}
+body #mainNavigation .navbar-brand:hover {
+  outline: 1px solid #ff3333;
+}
+body #mainNavigation a.nav-link {
+  color: #fff;
+}
+body #mainNavigation a.nav-link:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+body #mainNavigation a.btn:hover {
+  background-color: #ff2929;
+}
+body .col-md-8 img,
+body .col-md-4 img {
+  width: 95%;
+  height: 95%;
+}
+
+#over img {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+body .col-md-6 {
+  border: 2px solid black;
+  padding: 1em;
+  background: whitesmoke;
+}
+body .jumbotron .container {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  padding: 1em;
+  color: #fff;
+}
+body .jumbotron .container h1.display-3 {
+  color: #fff;
+}
+body img:hover {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  /* For IE8 and earlier */
+}
+body ul#render_sideLinks li {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 7px auto;
+  width: 100%;
+  overflow: hidden;
+}
+body ul#render_sideLinks li a {
+  color: blue;
+}
+body ul#render_sideLinks li a:hover {
+  color: #4d4dff;
+}
+body ul#render_sideLinks li a img {
+  margin-left: 5px;
+}
+body ul#render_sideLinks li a span {
+  margin-left: 12px;
+}
+body footer {
+  text-align: left;
+}
