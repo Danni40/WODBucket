@@ -226,4 +226,5 @@ def require_login():
 #app.secret_key = 'dksfmskfslvnmksmkslmgskldm'
 
 if __name__ == '__main__':
+    from os import environ
     app.run(host= '0.0.0.0')
