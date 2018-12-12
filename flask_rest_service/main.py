@@ -223,7 +223,7 @@ def require_login():
         return redirect("/")
 
 #in production, provide a unique key for security
-#app.secret_key = 'dksfmskfslvnmksmkslmgskldm'
+app.secret_key = 'dksfmskfslvnmksmkslmgskldm'
 
 if __name__ == '__main__':
     app.debug = True
