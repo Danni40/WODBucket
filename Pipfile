@@ -9,6 +9,7 @@ flask = "*"
 gunicorn = "*"
 flask-restful = "*"
 flask-pymongo = "*"
+requests = "*"
 
 [dev-packages]
 

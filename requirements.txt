@@ -18,6 +18,7 @@ pycparser==2.19
 pymongo==3.7.2
 PyMySQL==0.9.2
 pytz==2018.7
+requests
 six==1.11.0
 SQLAlchemy==1.2.14
 virtualenv==16.1.0
